@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Game</title>
+</head>
+<script type="text/javascript">
+
+	var selection=["Rock", "Paper", "Scissors"];
+	function computerPlay(){
+		return selection[Math.floor(Math.random()*3)].toLowerCase();
+	}
+	
+	function playRound(humanPlayer, computer){
+
+		switch(humanPlayer){		
+		case "rock":
+		if(humanPlayer==computer){
+			return;
+			//return "This game is a tie!";
+		}
+			
+		else if(computer=="scissors"){
+			return "human wins";
+			//return "You win! Rock beats Scissors";
+		}	
+
+		else{
+			return "computer wins";
+			//return "You lose! Paper beats Rock";
+		}	
+
+		case "paper":
+		if(humanPlayer==computer){
+			return;
+			//return "This game is a tie!";
+		}
+		
+		else if(computer=="rock"){
+			return "human wins";
+			//return "You win! Paper beats Rock";
+		}	
+
+		else{
+			return "computer wins";
+			//return "You lose! Scissors beats Paper";
+		}
+
+		case "scissors":
+		if(humanPlayer==computer){
+			return;
+			//return "This game is a tie!";
+		}
+		
+		else if(computer=="paper"){
+			return "human wins";
+			//return "You win! Scissors beats Paper";
+		}	
+
+		else{
+			return "computer wins";
+			//return "You lose! Rock beats Scissors";
+		}
+}}
+	function game(){
+		let computerScore=0;
+		let humanScore=0;
+		for(var i=0;i<5;i++){
+			const computerSelection=computerPlay();
+			let playerSelection=prompt("Rock, Paper or Scissors");
+			playerSelection= playerSelection.toLowerCase();
+			if(playRound(playerSelection, computerSelection)=="computer wins"){
+				computerScore++;
+				console.log("You lose! "+computerSelection+ " beats " +playerSelection+ " "+ computerScore+ " "+ humanScore);
+				
+			}
+			else if(playRound(playerSelection, computerSelection)=="human wins"){
+				humanScore++;
+				console.log("You win! "+playerSelection+ " beats " +computerSelection+ " "+ computerScore+ " "+ humanScore);
+
+				
+			}
+			else{
+				console.log("This round is a tie! " + computerScore+" "+ humanScore);
+			}
+		}
+			return computerScore>humanScore ? "Computer wins!" : "You win!"
+		
+		 
+	}
+	//let playerSelection=prompt("Rock, Paper or Scissors");
+	
+	const computerSelection=computerPlay();
+	console.log(game());
+//computerPlay();
+
+</script>
+<body>
+
+</body>
+</html>
